@@ -10,6 +10,8 @@ declare var $: any;
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent extends BaseComponent implements OnInit {
+  menus:any;
+  menus1:any;
   public products: any;
   public product: any;
   public totalRecords:any;
@@ -32,6 +34,12 @@ export class ProductComponent extends BaseComponent implements OnInit {
       'product_name': [''],
       'product_price': [''],     
     });
+    this._api.get('/api/category/get-category').takeUntil(this.unsubscribe).subscribe(res => {
+      this.menus = res;
+    }); 
+    this._api.get('/api/brand/get-brand').takeUntil(this.unsubscribe).subscribe(res => {
+      this.menus1 = res;
+    }); 
    
    this.search();
   }
@@ -69,8 +77,8 @@ export class ProductComponent extends BaseComponent implements OnInit {
         let tmp = {
            product_image:data_image,
            product_name:value.product_name,
-           category_id:value.category_id,
-           brand_id:value.brand_id,
+           category_id:this.menus.category_id,
+           brand_id:this.menus1.brand_id,
            product_content:value.product_content,
            product_status:value.product_status,
            product_desc:value.product_desc,
@@ -163,12 +171,12 @@ export class ProductComponent extends BaseComponent implements OnInit {
         
           this.formdata = this.fb.group({
             'product_name': ['',Validators.required],
-      'product_content': ['',Validators.required],
-      'product_status': ['',Validators.required],
-      'category_id': ['',Validators.required],
-      'brand_id': ['', Validators.required],
-      'product_price': ['', Validators.required],
-      'product_desc': ['', Validators.required],
+            'product_content': ['',Validators.required],
+            'product_status': ['',Validators.required],
+            'category_id': ['',Validators.required],
+            'brand_id': ['', Validators.required],
+            'product_price': ['', Validators.required],
+            'product_desc': ['', Validators.required],
           }, {
             
           }); 
