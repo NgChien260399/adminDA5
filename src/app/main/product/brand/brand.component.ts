@@ -22,6 +22,7 @@ export class BrandComponent extends BaseComponent implements OnInit {
   public doneSetupForm: any;  
   public showUpdateModal:any;
   public isCreate:any;
+  public parent: 1;
   submitted = false;
   @ViewChild(FileUpload, { static: false }) file_image: FileUpload;
   constructor(private fb: FormBuilder, injector: Injector) {
@@ -68,6 +69,7 @@ export class BrandComponent extends BaseComponent implements OnInit {
       this.getEncodeFromImage(this.file_image).subscribe((data: any): void => {
         let data_image = data == '' ? null : data;
         let tmp = {
+            parent_brand_id:this.parent,
            brand_name:value.brand_name,
            desc:value.desc,
            url:value.url,       
@@ -145,9 +147,9 @@ export class BrandComponent extends BaseComponent implements OnInit {
         this.brand = res; 
         
           this.formdata = this.fb.group({
-            'brand_name': ['',Validators.required],
-            'desc': ['',Validators.required],
-            'url': ['',Validators.required],
+            'brand_name': [this.brand.brand_name,Validators.required],
+            'desc': [this.brand.desc,Validators.required],
+            'url': [this.brand.url,Validators.required],
           }, {
             
           }); 

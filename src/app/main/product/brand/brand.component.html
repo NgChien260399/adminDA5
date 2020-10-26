@@ -22,15 +22,15 @@
         <p-panel header="Tìm kiếm" [style]="{'margin-top': '2px'}">
           <form class="form-horizontal"  [formGroup]="formsearch"  (ngSubmit)="search()">
             <div class="form-group">
-              <label class="col-sm-1 control-label no-padding-right">Tên thương hiệu</label>
-              <div class="col-sm-11">
+              <label class="col-sm-2 control-label no-padding-right">Tên thương hiệu</label>
+              <div class="col-sm-10">
                 <input formControlName="brand_name"  type="text" placeholder="Tên thương hiệu" />
               </div>
             </div>
             
             <div class="form-group">
-              <label class="col-sm-1 control-label no-padding-right"></label>
-              <div class="col-sm-11">
+              <label class="col-sm-2 control-label no-padding-right"></label>
+              <div class="col-sm-10">
                 <button (click)="search()" class="btn btn-sm btn-primary">Tìm kiếm</button>
               </div>
             </div>
@@ -78,87 +78,35 @@
           <div class="modal-content">
             <div class="modal-header">
               <h4  *ngIf="isCreate" class="modal-title">Nhập thông tin thương hiệu </h4>
-              <h4 *ngIf="!isCreate" class="modal-title">Sửa thông tin sản phẩm</h4>
+              <h4 *ngIf="!isCreate" class="modal-title">Sửa thông tin thương hiệu</h4>
             </div>
             <form *ngIf="doneSetupForm" [formGroup]="formdata"  (ngSubmit)="onSubmit(formdata.value)" class="form-horizontal utehy-form">
               <div class="modal-body no-padding">
                 <div class="form-group">
-                  <label class="col-sm-2 control-label no-padding-right"> Tên sản phẩm(<span style="color: red;">*</span>)</label>
-                  <div class="col-sm-5">
-                    <input type="text" placeholder="Tên sản phẩm" formControlName="product_name"/>
+                  <label class="col-sm-2 control-label no-padding-right"> Tên thương hiệu</label>
+                  <div class="col-sm-10">
+                    <input type="text" placeholder="Tên thương hiệu" formControlName="brand_name"/>
                     
                       
                     </div>
                   </div>
                 </div>
-    
-                <div class="form-group">
-                  <label class="col-sm-2 control-label no-padding-right">Danh mục(<span style="color: red;">*</span>)</label>
-                  <div class="col-sm-5">
-                    <select *ngFor="let mn of menus" class="custom-select" formControlName="category_id" placeholder="Danh mục">
-                      <option *ngFor="let m of mn.children" value="{{m.category_id}}">{{m.category_name}}</option>
-                    </select>
-                    
-                    <div *ngIf="submitted && f.category_id.errors" class="invalid-feedback">
-                      <div *ngIf="f.category_id.errors.required">Danh mục là bắt buộc</div>
-                  </div>
-                  </div>
-                </div>
-    
-                <div class="form-group">
-                  <label class="col-sm-2 control-label no-padding-right">Thương hiệu(<span style="color: red;">*</span>)</label>
-                  <div class="col-sm-5">
-                    <select *ngFor="let mn of menus1" class="custom-select" formControlName="brand_id" placeholder="Danh mục">
-                      <option *ngFor="let m of mn.children" value="{{m.brand_id}}">{{m.brand_name}}</option>
-                    </select>
-                    <div *ngIf="submitted && f.brand_id.errors" class="invalid-feedback">
-                      <div *ngIf="f.brand_id.errors.required">Danh mục là bắt buộc</div>
-                  </div>
-                  </div>
-                </div>
-    
+
     
                 <div class="form-group">
                   <label class="col-sm-2 control-label no-padding-right"> Mô tả</label>
                   <div class="col-sm-10">
-                    <input type="text" formControlName="product_desc" placeholder="Mô tả" />
+                    <input type="text" formControlName="desc" placeholder="Mô tả" />
                   </div>
                 </div>
     
                 <div class="form-group">
-                  <label class="col-sm-2 control-label no-padding-right"> Nội dung</label>
+                  <label class="col-sm-2 control-label no-padding-right"> URL</label>
                   <div class="col-sm-10">
-                    <input type="text" formControlName="product_content" placeholder="Nội dung" />
+                    <input type="text" formControlName="url" placeholder="Nội dung" />
                   </div>
                 </div>
-    
-                <div class="form-group">
-                  <label class="col-sm-2 control-label no-padding-right">Trạng thái</label>
-                  <div class="col-sm-10">
-                    <input type="text" formControlName="product_status" placeholder="Trạng thái" />
-                  </div>
-                </div>
-    
-                <div class="form-group">
-                  <label class="col-sm-2 control-label no-padding-right">Đơn giá</label>
-                  <div class="col-sm-10">
-                    <input type="text" formControlName="product_price" placeholder="Đơn giá" />
-                  </div>
-                </div>
-    
-    
-    
-    
-                <div class="form-group">
-                  <label class="col-sm-2 control-label no-padding-right"> Ảnh</label>
-                  <div class="col-sm-10">
-                    <p-fileUpload #file_image mode="advanced" [showUploadButton]="false" cancelLabel="Hủy" chooseLabel ="Chọn ảnh"   multiple="false" accept="image/*" maxFileSize="1000000">
-                        <ng-template pTemplate="content">
-                            <img *ngIf="product && product.product_image" style="height: 100px;width: 100px;" [src]="product.product_image">
-                        </ng-template>
-                  </p-fileUpload>
-                  </div>
-                </div>
+
     
                
                
