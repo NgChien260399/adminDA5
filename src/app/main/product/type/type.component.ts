@@ -147,9 +147,9 @@ export class TypeComponent extends BaseComponent implements OnInit {
         this.category = res; 
         
           this.formdata = this.fb.group({
-            'category_name': ['',Validators.required],
-            'desc': ['',Validators.required],
-            'url': ['',Validators.required],
+            'category_name': [this.category.category_name,Validators.required],
+            'desc': [this.category.desc,Validators.required],
+            'url': [this.category.url,Validators.required],
           }, {
             
           }); 
