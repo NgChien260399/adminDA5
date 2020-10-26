@@ -1,3 +1,4 @@
+import { BrandComponent } from './brand/brand.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -13,13 +14,17 @@ const routes: Routes = [
     path: 'product',
     component: ProductComponent
   },
-  { path: 'category', component: TypeComponent },
-  { path: 'order', component: OrderComponent}
+  {
+    path: 'category',
+    component: TypeComponent
+  },
+  { path: 'order', component: OrderComponent},
+  { path: 'brand', component: BrandComponent }
 ];
 
 @NgModule({
   declarations: [ 
-    OrderComponent,ProductComponent,TypeComponent
+    OrderComponent,ProductComponent,TypeComponent,BrandComponent
   ],
   imports: [
     CommonModule,
