@@ -1,3 +1,4 @@
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { of as observableOf, fromEvent, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FileUpload } from 'primeng/fileupload';
@@ -13,6 +14,7 @@ export class BaseComponent {
    public unsubscribe = new Subject();
    public _api: ApiService;
    public _route: ActivatedRoute;
+   
    constructor(injector: Injector) { 
           this.today = new Date();
           this.dateFormat = "dd/mm/yy";

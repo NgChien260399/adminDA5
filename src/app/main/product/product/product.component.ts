@@ -43,6 +43,7 @@ export class ProductComponent extends BaseComponent implements OnInit {
    
    this.search();
   }
+  
 
   loadPage(page) { 
     this._api.post('/api/product/search-product',{page: page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
@@ -50,6 +51,7 @@ export class ProductComponent extends BaseComponent implements OnInit {
       this.totalRecords =  res.totalItems;
       this.pageSize = res.pageSize;
       });
+      
   } 
 
   search() { 

@@ -10,6 +10,7 @@ declare var $: any;
   templateUrl: './brand.component.html',
   styleUrls: ['./brand.component.css']
 })
+
 export class BrandComponent extends BaseComponent implements OnInit {
   public brands: any;
   public brand: any;
@@ -38,6 +39,7 @@ export class BrandComponent extends BaseComponent implements OnInit {
    this.search();
   }
 
+  
   loadPage(page) { 
     this._api.post('/api/brand/search-brand',{page: page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
       this.brands = res.data;
