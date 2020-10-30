@@ -24,6 +24,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/quill/dist/quill.core.css",
+               "node_modules/quill/dist/quill.snow.css",
               "src/assets/css/bootstrap.min.css",      
               "src/assets/font-awesome/4.2.0/css/font-awesome.min.css",        
               "src/assets/fonts/fonts.googleapis.com.css",
@@ -35,7 +37,7 @@
               
             ],
             "scripts": [
-              
+             "node_modules/quill/dist/quill.js",
               "src/assets/js/jquery.2.1.1.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/ace-elements.min.js", 

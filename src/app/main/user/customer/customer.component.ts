@@ -50,7 +50,7 @@ export class CustomerComponent extends BaseComponent implements OnInit {
   search() { 
     this.page = 1;
     this.pageSize = 5;
-    this._api.post('/api/customer/search-customer',{page: this.page, pageSize: this.pageSize, customer_name: this.formsearch.get('customer_name').value, customer_email: this.formsearch.get('customer_email').value}).takeUntil(this.unsubscribe).subscribe(res => {
+    this._api.post('/api/customer/search-customer',{page: this.page, pageSize: this.pageSize, customer_name: this.formsearch.get('customer_name').value,customer_email: this.formsearch.get('customer_email').value}).takeUntil(this.unsubscribe).subscribe(res => {
       this.customers = res.data;
       this.totalRecords =  res.totalItems;
       this.pageSize = res.pageSize;

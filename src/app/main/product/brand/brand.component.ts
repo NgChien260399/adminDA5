@@ -50,7 +50,7 @@ export class BrandComponent extends BaseComponent implements OnInit {
 
   search() { 
     this.page = 1;
-    this.pageSize = 5;
+    this.pageSize = 10;
     this._api.post('/api/brand/search-brand',{page: this.page, pageSize: this.pageSize, brand_name: this.formsearch.get('brand_name').value}).takeUntil(this.unsubscribe).subscribe(res => {
       this.brands = res.data;
       this.totalRecords =  res.totalItems;

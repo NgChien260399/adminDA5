@@ -9,7 +9,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FileUploadModule } from 'primeng/fileupload';
 import { HttpClientModule} from '@angular/common/http';
-import { CKEditorModule } from 'ckeditor4-angular';
+import {EditorModule} from 'primeng/editor';
 
 const routes: Routes = [
   {
@@ -35,7 +35,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     FileUploadModule,
     SharedModule,
-    HttpClientModule, 
-    CKEditorModule  ]
+    HttpClientModule,
+    EditorModule  ]
 })
 export class ProductModule { }
