@@ -79,8 +79,8 @@ export class ProductComponent extends BaseComponent implements OnInit {
         let tmp = {
            product_image:data_image,
            product_name:value.product_name,
-           category_id:this.menus.category_id,
-           brand_id:this.menus1.brand_id,
+           category_id:value.category_id,
+           brand_id:value.brand_id,
            product_content:value.product_content,
            product_status:value.product_status,
            product_desc:value.product_desc,

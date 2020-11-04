@@ -120,9 +120,7 @@
                   <option *ngFor="let m of mn.children" value="{{m.category_id}}">{{m.category_name}}</option>
                 </select>
                 
-                <div *ngIf="submitted && f.category_id.errors" class="invalid-feedback">
-                  <div *ngIf="f.category_id.errors.required">Danh mục là bắt buộc</div>
-              </div>
+                
               </div>
             </div>
 
@@ -132,9 +130,7 @@
                 <select style="width: 100%;" *ngFor="let mn of menus1" class="custom-select" formControlName="brand_id" placeholder="Danh mục">
                   <option *ngFor="let m of mn.children" value="{{m.brand_id}}">{{m.brand_name}}</option>
                 </select>
-                <div *ngIf="submitted && f.brand_id.errors" class="invalid-feedback">
-                  <div *ngIf="f.brand_id.errors.required">Danh mục là bắt buộc</div>
-              </div>
+                
               </div>
             </div>
 
