@@ -30,7 +30,7 @@
         <!-- <div class="form-group">
           <label class="col-sm-1 control-label no-padding-right">Giá sp</label>
           <div class="col-sm-11">
-            <input formControlName="product_price"  type="text" placeholder="Tên sản phẩm" />
+            <input formControlName="product_price"  type="text" placeholder="giá sản phẩm" />
           </div>
         </div> -->
         <div class="form-group">
@@ -44,36 +44,24 @@
     <p-table selectionMode="single" [value]="products" styleClass="p-datatable-gridlines">
       <ng-template pTemplate="header">
         <tr>
-          <th style="width: 70px; text-align: center;">STT</th>
-          <th style="width: 15%; text-align: left;">Tên sản phẩm</th>
-          <th style="width: 15%; text-align: left;">Hình ảnh</th>
-          <th style="width: 130px; text-align: left;">content</th>
-          <th style="width: 100px; text-align: left;">status</th>
-          <th style="width: 130px; text-align: left;">price</th>
-          <th style="width: 130px; text-align: left;">Mô tả</th>
-          <th style="width: 120px; text-align: left;">Tác vụ</th>
+          <th style="text-align: center;">STT</th>
+          <th style="text-align: center;width: 300px;">Tên sản phẩm</th>
+          <th style="text-align: center;">Hình ảnh</th>
+          <th style="text-align: center;">content</th>
+          <th style="text-align: center;">price</th>
+          <th style="text-align: center;">Mô tả</th>
+          <th style="text-align: center;">Tác vụ</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-item  let-i="rowIndex">
         <tr>
-          <td style="width: 100px; text-align: center;">{{ i + 1 }}</td>
-          <td>{{ item.product_name }}</td>
-          <td><img style="width:70px;" src="./assets/product/{{item.product_image}}"/></td>
-          <td style="display: -webkit-box;
-          line-height: 30px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical;" innerHtml="{{item.product_content}}"></td>
-          <td>{{ item.product_status }}</td>
-          <td>{{ item.product_price }}</td>
-          <td style="display: -webkit-box;
-          line-height: 30px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical;" innerHtml="{{item.product_desc}}"></td>
-          <td class="action-col" >
+          <td style="text-align: center;">{{ i + 1 }}</td>
+          <td style="text-align: center;width: 300px;">{{ item.product_name }}</td>
+          <td style="text-align: center;"><img style="width:50px;" src="./assets/product/{{item.product_image}}"/></td>
+          <td style="text-align: center;"><p style="white-space: nowrap;width: 100%;text-overflow: ellipsis;overflow: hidden;">{{item.product_content}}</p></td>
+          <td style="text-align: center;">{{ item.product_price }}</td>
+          <td style="text-align: center;"><p style="white-space: nowrap;width: 100%;text-overflow: ellipsis;overflow: hidden;">{{item.product_desc}}</p></td>
+          <td class="action-col" style="text-align: center;" >
             <div class="btn-group">
               <button title="" class="btn btn-xs btn-white btn-default"  (click)="openUpdateModal(item)">  
                 <i class="ace-icon fa fa-edit"></i>
